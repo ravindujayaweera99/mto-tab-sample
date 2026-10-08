@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MTO Tab</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏥%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head><body>
+<div class="app">
+<aside><div class="logo"><i>SLIC</i>MTO Tab</div>
+<a href="#/dashboard" data-r="dashboard"><i>▦</i><span>Dashboard</span></a><a href="#/notification" data-r="notification"><i>🔔<b class="bd" id="bd">8</b></i><span>Notification</span></a><a href="#/inquiry" data-r="inquiry"><i>🔍</i><span>Inquiry</span></a><a href="#/history" data-r="history"><i>🕘</i><span>Claim history</span></a><a href="#/claim-payment" data-r="claim-payment"><i>💳</i><span>Claim payment</span></a>
+<div class="user"><b style="color:var(--tx)">Nimali Perera</b><br>Medical operations officer</div></aside>
+<main>
+<div class="top"><div class="bc" id="bc"></div><button class="ib" id="th" aria-label="Toggle theme">◐</button><span class="tag">SEC6556</span></div>
+<section class="page" id="page-dash" hidden>
+<h1>Dashboard</h1><p class="hello" id="hello"></p>
+<h2>Job &amp; claim summary <button id="drf" aria-label="Refresh">↻ Refresh</button></h2>
+<div class="grid" id="g"></div>
+</section>
+<section class="page" id="page-notif" hidden>
+<h1>Notification</h1>
+<section class="card">
+<div class="head"><h2>New notification list</h2><div class="chips" id="chips" role="tablist"></div></div>
+<div class="tools"><input id="q" type="search" placeholder="Search MCN / patient / hospital" inputmode="search" aria-label="Search"><button class="btn" id="mark">✓ Mark all read</button></div>
+<table><thead><tr><th>Notification / MCN</th><th>Patient</th><th>Hospital</th><th>Received</th><th></th></tr></thead><tbody id="tb"></tbody></table>
+<div class="foot" id="foot"></div>
+</section></section>
+<section class="page" id="page-claim" hidden>
+<h1>Claim Payment</h1>
+
+<div class="grid2">
+<section class="card"><h2>Policy Details</h2><div class="bdy kv">
+<div><small>Policy number</small><b>DEMO-POL-001</b></div><div><small>Policy type</small><b>Family medical - Demo</b></div>
+<div><small>Effective date</small><b>01 Jan 2026</b></div><div><small>Expiry date</small><b>31 Dec 2026</b></div>
+<div><small>Insurer</small><b>Demo insurer</b></div><div><small>Policy status</small><b class="ok">Active - Sample</b></div></div></section>
+<section class="card"><h2>Member Details</h2><div class="bdy kv">
+<div><small>Member name</small><b>Demo Member A</b></div><div><small>Member number</small><b>DEMO-MEM-001</b></div>
+<div><small>Date of birth</small><b>15 Jun 1988</b></div><div><small>Age</small><b>38 years</b></div>
+<div><small>Effective date</small><b>01 Jan 2026</b></div><div><small>Relationship</small><b>Self</b></div></div></section>
+</div>
+
+<section class="card"><h2>Claim Details</h2><div class="bdy f">
+<div><label>Reference number</label><input value="DEMO-CL-004"></div>
+<div><label>Admission date</label><input type="date" id="adm" value="2026-09-28"></div>
+<div><label>Discharge date</label><input type="date" id="dis" value="2026-09-30"></div>
+<div><label>Hospital name</label><input value="DEMO-CL-004"></div>
+<div><label>Room no</label><input value="DEMO-CL-004"></div>
+<div><label>Patient name</label><input value="DEMO-CL-004"></div>
+<div><label>BHT</label><input value="DEMO-CL-004"></div>
+<div><label>Illness</label><input value="DEMO-CL-004"></div></div></section>
+
+<div class="tabs" id="tabs"><button class="on">Indoor</button><button>OPD</button><button>CIC</button><span class="tag">Policy Type : Gross Up</span></div>
+
+<section class="card"><h2>Benefit Limits &amp; Balance</h2><div class="bdy">
+<div class="f"><div><label>Indoor year limit</label><input readonly value="200,000.00"></div><div><label>Indoor event limit</label><input readonly value="180,000.00"></div><div><label>Indoor balance</label><input readonly value="200,000.00"></div></div>
+<div class="sub">Normal policy</div><div class="tw"><table><tr><th>Benefit description</th><th class="n">Benefit limit</th></tr><tr><td>Child Birth</td><td class="n">10,000.00</td></tr><tr><td>Cataract</td><td class="n">8,000.00</td></tr></table></div>
+<div class="sub">Sublimit policy</div><div class="tw"><table><tr><th>Benefit description</th><th class="n">Limits</th><th class="n">Balance</th></tr>
+<tr><td>Room Charges</td><td class="n">10,000.00</td><td class="n">10,000.00</td></tr><tr><td>Investigation</td><td class="n">8,000.00</td><td class="n">8,000.00</td></tr><tr><td>Transport</td><td class="n">8,000.00</td><td class="n">8,000.00</td></tr></table></div>
+<div class="tw"><table><tr><th>Sub limit category</th><th>Benefit</th><th class="n">Benefit limit</th></tr><tr><td>Investigation</td><td>Testing</td><td class="n">10,000.00</td></tr><tr><td>DEMO-CL-005</td><td>Allowance<br>Cataract Lenses</td><td class="n">8,000.00<br>8,000.00</td></tr></table></div></div></section>
+
+<div class="chk card" style="padding:14px 18px;margin:0 0 16px"><label><input type="radio" name="m" checked> Normal</label><label><input type="radio" name="m"> Other</label></div>
+
+<section class="card"><h2>Room Rate Calculation</h2><div class="bdy">
+<div class="chk"><label><input type="checkbox" name="rt" value="Normal"> Normal</label><label><input type="checkbox" name="rt" value="ICU" checked> ICU</label><label><input type="checkbox" name="rt" value="Luxury"> Luxury room payable</label></div>
+<div class="f"><div><label>Room fee (per day)</label><input type="number" id="rf" value="10000" min="0"></div><div><label>Days</label><input type="number" id="rd" value="2" min="0"></div><div><label>Hours</label><input type="number" id="rh" value="0" min="0" max="23"></div><div><label>Total room charges</label><input id="rtot" readonly></div>
+<div><label>VAT %</label><input id="vp" type="number" value="18"></div><div><label>Total VAT</label><input id="vat" readonly></div><div><label>Charges with VAT</label><input id="rwv" readonly></div></div>
+<p><button class="btn" id="addr">+ Add room entry</button></p>
+<div class="tw"><table id="rooms"><thead><tr><th>Room type</th><th class="n">Rate/day</th><th class="n">Days</th><th class="n">Hours</th><th class="n">Charges</th><th class="n">VAT</th><th class="n">With VAT</th><th>Action</th></tr></thead><tbody></tbody><tfoot></tfoot></table></div></div></section>
+
+<section class="card"><h2>Administration Fee Calculation</h2><div class="bdy f">
+<div><label>Fee (per day)</label><input type="number" id="af" value="850"></div><div><label>Days</label><input type="number" id="ad" value="10"></div><div><label>Hours</label><input type="number" id="ah" value="0"></div><div><label>Administration fee</label><input id="at" readonly></div></div></section>
+
+<section class="card"><h2>Billing Details</h2><div class="bdy"><div class="bill">
+<div class="tw" style="margin:0"><table id="bt"><thead><tr><th>Description</th><th class="n">Bill</th><th class="n">Payable</th><th class="n">Not paid</th></tr></thead><tbody></tbody></table></div>
+<p style="grid-column:1/-1;margin:0"></p><div><div class="sub" style="margin-top:0">Document list</div><div id="docs"></div><div class="prev" id="prev"><h4>BILL</h4><i></i><i></i><i style="width:70%"></i><i></i><i style="width:50%"></i></div><button class="btn g" id="zm" style="width:100%;margin-top:8px">🔍 Zoom</button></div></div>
+<p><button class="btn g" id="addb">+ Add bill item</button> <small style="color:var(--mu)">Edit Bill and Payable amounts; Not paid updates automatically.</small></p><div class="tw"><table><tr><th>Amount</th><th>Reason</th></tr><tbody id="rs"></tbody></table></div>
+<div class="sum"><div class="pill"><small>Requested</small><b id="sr"></b></div><div class="pill"><small>Total payable</small><b class="ok" id="sp"></b></div><div class="pill"><small>Not paid</small><b class="bad" id="sn"></b></div></div></div></section>
+
+<div class="grid2">
+<section class="card"><h2>Fund</h2><div class="bdy f" style="grid-template-columns:1fr">
+<div><label>Fund limit</label><input readonly value="1,000,000.00"></div><div><label>Fund available balance</label><input readonly value="500,000.00"></div>
+<div><label>Not paid amount</label><input readonly id="fn" class="bad"></div>
+<div><label>Coordinator agreed fund amount (editable)</label><div class="row"><input type="number" value="257000" id="ca"><button class="btn" style="flex:none;min-width:0" onclick="toast('SMS sent to customer')">SMS</button></div></div>
+<div><label>Customer agreed fund amount</label><input readonly value="257,000.00"></div><div><label>Remark</label><textarea rows="2" placeholder="Remark"></textarea></div></div></section>
+<section class="card"><h2>Club Member</h2><div class="bdy f" style="grid-template-columns:1fr">
+<div><label>Total after excess</label><input readonly value="263,967.00"></div><div><label>Premium outstanding</label><input readonly value="10,000.00"></div><div><label>Total after premium deduct</label><input readonly value="253,967.00"></div><div><label>Remark</label><textarea rows="2" placeholder="Remark"></textarea></div></div></section>
+</div>
+
+<section class="card"><h2>Action</h2><div class="bdy"><div class="row"><label style="display:flex;gap:8px;align-items:center;text-transform:none;font-size:14px;color:var(--tx);flex:none"><input type="checkbox" checked id="ap"> Approval request</label>
+<select><option>Medical</option><option>Financial</option></select><select><option>Technical</option><option>Non-technical</option></select></div>
+<div style="margin-top:12px"><label>Remark</label><textarea rows="2" placeholder="Remark"></textarea></div></div></section>
+<section class="card"><h2>Final remark</h2><div class="bdy"><textarea id="fr" rows="3" placeholder="Enter remark (required to submit)"></textarea></div></section>
+<div class="sticky"><div><small>Requested</small><b id="s1"></b></div><div><small>Payable</small><b class="ok" id="s2"></b></div><div><small>Not paid</small><b class="bad" id="s3"></b></div><button class="btn" id="sub">Submit ✓</button></div>
+</section>
+<section class="page" id="page-inquiry" hidden><h1>Inquiry</h1><div class="soon"><i>🔍</i><b>Inquiry is coming soon</b>This section isn't built yet.</div></section>
+<section class="page" id="page-history" hidden><h1>Claim history</h1><div class="soon"><i>🕘</i><b>Claim history is coming soon</b>This section isn't built yet.</div></section>
+</main></div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body></html>
